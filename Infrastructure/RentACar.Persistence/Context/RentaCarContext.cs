@@ -12,7 +12,7 @@ namespace RentACar.Persistence.Context
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=.;Database=E-CommerceApi;Trusted_Connection=True;TrustServerCertificate=true");
+            optionsBuilder.UseSqlServer("Server=.;Database=RentaCarDb;Trusted_Connection=True;TrustServerCertificate=true");
 
 
         }
