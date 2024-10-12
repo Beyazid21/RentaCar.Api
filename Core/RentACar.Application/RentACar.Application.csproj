@@ -10,8 +10,4 @@
     <ProjectReference Include="..\RentaCar.Domain\RentaCar.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Features\CQRS\Results\BannerResults\" />
-  </ItemGroup>
-
 </Project>
