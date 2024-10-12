@@ -1,7 +1,18 @@
+using RentACar.Application.Features.CQRS.Handlers.AboutHandlers;
+using RentACar.Application.Interfaces;
+using RentACar.Persistence.Context;
+using RentACar.Persistence.Repositories;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
+builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+builder.Services.AddScoped<RentaCarContext>();
+builder.Services.AddScoped<GetAboutQueryHandler>();
+builder.Services.AddScoped<GetAboutByIdQueryHandler>();
+builder.Services.AddScoped<CreateAboutCommandHandler>();
+builder.Services.AddScoped<RemoveAboutCommandHandler>();
+builder.Services.AddScoped<UpdateAboutCommandHandler    >();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
