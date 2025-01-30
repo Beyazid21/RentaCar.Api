@@ -19,10 +19,23 @@ namespace RentACar.Persistence.Repositories.CarRepositories
             _context = context;
         }
 
+        public int GetCarCount()
+        {
+            var value =_context.Cars.Count();
+            return value;   
+        }
+
         public async Task<List<Car>> GetCarsListWithBrand()
         {
             return await _context.Cars.Include(c => c.Brand).ToListAsync();
 
+        }
+
+       
+
+        public async Task<List<Car>> GetLast5CarsListWithBrand()
+        {
+           return await _context.Cars.Include(c=>c.Brand).OrderByDescending(x=>x.CarId).Take(5).ToListAsync();
         }
     }
 }

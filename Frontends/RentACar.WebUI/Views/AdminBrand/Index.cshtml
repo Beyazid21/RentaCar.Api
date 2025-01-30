@@ -1,0 +1,81 @@
+﻿@model List<ResultBrandDto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLoyaut/Index.cshtml";
+    int count = 0;
+}
+
+
+
+<div class="page-content">
+    <div class="container-fluid">
+
+        <!-- start page title -->
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Markalar</h4>
+                        <p class="card-subtitle mb-4">
+                            Avtomobillərin Markaları silmə yeniləmə və əlavə etmə əmaliyyatları burdan edilir
+                        </p>
+                        <div class="table-responsive">
+                            <table class="table mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Xüsusiyyət</th>
+
+                                        <th>Sil</th>
+                                        <th>Yenilə</th>
+
+
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        count++;
+
+                                        <tr>
+                                            <th scope="row">@count </th>
+                                            <td>@item.Model</td>
+
+                                            <td><a class="btn btn-outline-danger" asp-action="DeleteBrand" asp-route-id="@item.BrandId"> Sil</a></td>
+                                            <td><a class="btn btn-outline-warning" asp-action="UpdateBrand" asp-route-id="@item.BrandId"> Yenilə</a></td>
+
+
+
+
+                                        </tr>
+
+
+                                    }
+
+
+                                </tbody>
+
+                            </table>
+                            <a asp-controller="AdminBrand" asp-action="CreateBrand" class="btn btn-outline-success">Əlavə Et</a>
+                        </div>
+
+                    </div>
+                    <!-- end card-body-->
+                </div>
+                <!-- end card -->
+
+            </div>
+            <!-- end col -->
+            <!-- end col -->
+        </div>
+        <!-- end page title -->
+
+    </div> <!-- container-fluid -->
+</div>
+
+
+
+
+

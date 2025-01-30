@@ -1,0 +1,80 @@
+﻿@model UpdateCarDto
+@{
+    ViewData["Title"] = "UpdateCar";
+    Layout = "~/Views/AdminLoyaut/Index.cshtml";
+}
+
+
+
+<div class="page-content">
+    <div class="container-fluid">
+
+
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+
+                        <h4 class="card-title">Avtomobil Yeniləmə Səhifəsi</h4>
+                        <p class="card-subtitle mb-4">Avtomabil Buradan Yenilənir</p>
+
+                        <form method="post">
+                            <input type="hidden" asp-for="CarId"  />
+                            <div class="form-group">
+                                <label asp-for="BrandId" >Marka</label>
+                                @Html.DropDownListFor(x => x.BrandId, (List<SelectListItem>)ViewBag.BrandValues, new { @class = "form-control" })
+
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Name">Model</label>
+                                <input type="text" class="form-control" id="exampleInputModel" asp-for="Name" placeholder="Modeli yazın">
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="CoverImageUrle" for="exampleInputIamge"> Şəkil</label>
+                                <input type="text" class="form-control" id="exampleInputBigIamge" asp-for="CoverImageUrle" placeholder=" şəkili daxil et">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputKm">Km</label>
+                                <input type="text" class="form-control" id="exampleInputKm" asp-for="Km" placeholder="Km daxil et">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputTransmisson">Sürətlər qutusu</label>
+                                <input type="text" class="form-control" id="exampleInputTransmisson" asp-for="Transmisson" placeholder="Sürətlər qutusun yazın">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputSeat">Oturacaq sayı</label>
+                                <input type="number" class="form-control" id="exampleInputSeat" asp-for="Seat" placeholder="Oturacaq sayını yazın">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputLuggage">Baqaj yeri sayı</label>
+                                <input type="number" class="form-control" id="exampleInputLuggage" asp-for="Luggage" placeholder="Baqaj yer sayını yazın">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputFuel">Yanacaq növü</label>
+                                <input type="text" class="form-control" id="exampleInputFuel" asp-for="Fuel" placeholder="Yanacaq növünü yazın">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputBigIamge">Böyük Şəkil</label>
+                                <input type="text" class="form-control" id="exampleInputBigIamge" asp-for="BigImageUrl" placeholder="Böyük şəkili daxil et">
+                            </div>
+
+                            <button type="submit" class="btn btn-primary waves-effect waves-light">Əlavə et</button>
+                        </form>
+
+                    </div> <!-- end card-body-->
+                </div>
+
+            </div>
+            <!-- end card-body-->
+        </div>
+        <!-- end card -->
+
+    </div>
+    <!-- end col -->
+    <!-- end col -->
+</div>
+<!-- end page title -->

@@ -1,0 +1,58 @@
+﻿@model CreateReservationDto
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/UILayout/Index.cshtml";
+}
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["ErrorMessage"]
+    </div>
+}
+<div class="col-md-12 block-9 mb-md-5">
+    <form  class="bg-light p-5 contact-form" method="post">
+        <h3 class="alert alert-success">Avtomobil Kiralama Formu</h3>
+        <div class="form-group">
+            <input value="@ViewBag.CarId" type="hidden" asp-for="CarId" class="form-control" readonly  >
+        </div>
+        <div class="form-group">
+            <input type="text" asp-for="Name" class="form-control" placeholder="Adınız">
+        </div>
+
+          <div class="form-group">
+            <input type="text" asp-for="Surname" class="form-control" placeholder="Soyadınız">
+        </div>
+        <div class="form-group">
+            <input type="text" asp-for="Email" class="form-control" placeholder="E-Poçt ünvanınız">
+        </div>
+        <div class="form-group">
+            <input type="text" asp-for="Phone" class="form-control" placeholder="Telefon nömrəniz">
+        </div>
+        <label>Almaq istədiyiniz ünvan</label>
+
+        <div class="form-group">
+            @Html.DropDownListFor(x => x.PickUpLocationId, (List<SelectListItem>)ViewBag.V, new { @class = "form-control " })
+        </div>
+
+        <label>Qaytarmaq istədiyiniz ünvan</label>
+        <div class="form-group">
+            @Html.DropDownListFor(x => x.DropOffLocationId, (List<SelectListItem>)ViewBag.V, new { @class = "form-control " })
+        </div>
+
+        <div class="form-group">
+            <input type="text" asp-for="Age" class="form-control" placeholder="Yaşınız">
+        </div>
+
+        <div class="form-group">
+            <input type="text" asp-for="DriverLicenseYear" class="form-control" placeholder="Sürücülük vəsiqəsi iliniz">
+        </div>
+        <div class="form-group">
+            <textarea asp-for="Description" cols="30" rows="7" class="form-control" placeholder="Əlavə etmək istədikəriniz"></textarea>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="İcarəni tamamla" class="btn btn-primary py-3 px-5">
+        </div>
+    </form>
+
+</div>
+

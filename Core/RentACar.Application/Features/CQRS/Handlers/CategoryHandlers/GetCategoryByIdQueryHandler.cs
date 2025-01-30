@@ -23,7 +23,7 @@ namespace RentACar.Application.Features.CQRS.Handlers.CategoryHandlers
 
         public async Task<GetCategoryByIdQueryResult> Handle(GetCategoryByIdQuery query)
         {
-            var value = await _repository.GetByIdAsync(query.Id);
+            var value = await _repository.GetByIdAsync(predicate: x => x.CategoryId == query.Id);
 
             return new GetCategoryByIdQueryResult
             {

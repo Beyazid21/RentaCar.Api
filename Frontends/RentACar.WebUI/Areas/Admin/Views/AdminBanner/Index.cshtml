@@ -1,0 +1,87 @@
+﻿@model List<ResultBannerDto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLoyaut/Index.cshtml";
+  
+}
+
+
+
+<div class="page-content">
+    <div class="container-fluid">
+
+        <!-- start page title -->
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Banner hissəsi</h4>
+                        <p class="card-subtitle mb-4">
+                            Banner Hissəsi məlumatları silmə yeniləmə və əlavə etmə əmaliyyatları burdan edilir
+                        </p>
+                        <div class="table-responsive">
+                            <table class="table mb-0">
+                                <thead>
+                                    <tr>
+                                       
+                                        <th>Başlıq</th>
+                                        <th>Təsviri</th>
+                                        <th>Videonun təsviri</th>
+                                        <th>Videonun Url-si</th>
+
+                                        <th>Sil</th>
+                                        <th>Yenilə</th>
+
+
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                    
+
+                                        <tr>
+                                           
+                                            <td>@item.Title</td>
+                                            <td>@item.Description</td>
+                                            <td>@item.VieoDescription</td>
+                                            <td>@item.VideoUrl</td>
+
+
+                                            <td><a class="btn btn-outline-danger" asp-area="Admin" asp-action="DeleteBanner" asp-route-id="@item.BannerId"> Sil</a></td>
+                                            <td><a class="btn btn-outline-warning" asp-area="Admin" asp-action="UpdateBanner" asp-route-id="@item.BannerId"> Yenilə</a></td>
+
+
+
+
+                                        </tr>
+
+
+                                    }
+
+
+                                </tbody>
+
+                            </table>
+                            <a asp-area="Admin" asp-controller="AdminBanner" asp-action="CreateBanner" class="btn btn-outline-success">Əlavə Et</a>
+                        </div>
+
+                    </div>
+                    <!-- end card-body-->
+                </div>
+                <!-- end card -->
+
+            </div>
+            <!-- end col -->
+            <!-- end col -->
+        </div>
+        <!-- end page title -->
+
+    </div> <!-- container-fluid -->
+</div>
+
+
+
+

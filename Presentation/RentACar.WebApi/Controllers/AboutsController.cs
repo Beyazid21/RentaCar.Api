@@ -47,7 +47,7 @@ namespace RentACar.WebApi.Controllers
 
             return Ok("Haqqimda elave olundu");
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
 
         public async Task<IActionResult> RemoveAbout(int id)
         {

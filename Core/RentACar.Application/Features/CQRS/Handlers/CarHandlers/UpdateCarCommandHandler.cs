@@ -21,7 +21,7 @@ namespace RentACar.Application.Features.CQRS.Handlers.CarHandlers
 
         public async Task Handle(UpdateCarCommand command)
         {
-            var value = await _repository.GetByIdAsync(command.CarId);
+            var value = await _repository.GetByIdAsync(x => x.CarId == command.CarId);
             value.Fuel = command.Fuel;
             value.Name = command.Name;
             value.Seat = command.Seat;

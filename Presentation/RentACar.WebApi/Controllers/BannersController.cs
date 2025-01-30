@@ -5,6 +5,7 @@ using RentACar.Application.Features.CQRS.Commands.BannerCommands;
 using RentACar.Application.Features.CQRS.Handlers.AboutHandlers;
 using RentACar.Application.Features.CQRS.Handlers.BannerHandlers;
 using RentACar.Application.Features.CQRS.Queries.BannerQueries;
+using RentACar.Application.Validators.BannerValidators;
 
 namespace RentACar.WebApi.Controllers
 {
@@ -46,6 +47,17 @@ namespace RentACar.WebApi.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateBanner(CreateBannerCommand command)
         {
+            CreateBannerValidators validator = new CreateBannerValidators();
+
+            var validationresult=validator.Validate(command);
+            if (!validationresult.IsValid) 
+            { 
+            
+            return BadRequest(validationresult.Errors);
+            
+            
+            }
+
             await _createBannerCommandHandler.Handle(command);
 
             return Ok("Yeni banner elave olundu");
@@ -59,7 +71,7 @@ namespace RentACar.WebApi.Controllers
             return Ok("Banner yenilendi");
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
 
         public async Task<IActionResult> RemoveBanner(int id)
         {

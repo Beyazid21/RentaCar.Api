@@ -23,7 +23,7 @@ namespace RentACar.Application.Features.CQRS.Handlers.CarHandlers
 
         public async Task<GetCarByIdQueryResult> Handle(GetCarByIdQuery query)
         {
-            var value = await _repository.GetByIdAsync(query.Id);
+            var value = await _repository.GetByIdAsync(predicate: x => x.CarId == query.Id);
 
             return new GetCarByIdQueryResult
             {

@@ -1,4 +1,5 @@
-﻿using RentaCar.Domain.Entities;
+﻿using MediatR;
+using RentaCar.Domain.Entities;
 using RentACar.Application.Features.CQRS.Queries.AboutQuesires;
 using RentACar.Application.Features.CQRS.Results.AboutResults;
 using RentACar.Application.Interfaces;
@@ -21,7 +22,7 @@ namespace RentACar.Application.Features.CQRS.Handlers.AboutHandlers
 
         public async Task<GetAboutByIdQueryResult> Handle(GetAboutByIdQuery query)
         {
-            var value = await _repository.GetByIdAsync(query.Id);
+            var value = await _repository.GetByIdAsync(predicate: x => x.AboutId == query.Id);
 
             return new GetAboutByIdQueryResult
             {

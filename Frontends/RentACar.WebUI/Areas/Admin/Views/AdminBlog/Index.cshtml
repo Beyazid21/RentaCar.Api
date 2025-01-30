@@ -1,0 +1,97 @@
+﻿@model List<ResultAllBlogsWithAuthorsDto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLoyaut/Index.cshtml";
+    int count = 0;
+}
+
+
+
+<div class="page-content">
+    <div class="container-fluid">
+
+        <!-- start page title -->
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Blog hissəsi</h4>
+                        <p class="card-subtitle mb-4">
+                            Blog Hissəsi məlumatları silmə yeniləmə və əlavə etmə əmaliyyatları burdan edilir
+                        </p>
+                        <div class="table-responsive">
+                            <table class="table mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Başlıq</th>
+                                        <th>Müəllif</th>
+                                        <th>Tarix</th>
+                                        <th>Kateqoriya</th>
+
+
+                                        <th>Sil</th>
+                                      
+                                        <th>Blogu Aç</th>
+                                        <th>Şərhlər</th>
+
+
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        count++;
+
+                                        <tr>
+
+                                            <td>@item.Title</td>
+                                            <td>@item.Description</td>
+                                            <td>@item.AuthorName</td>
+                                            <td>@item.CreatedDate</td>
+
+                                            <td>@item.CategoryName</td>
+
+
+
+                                            <td><a class="btn btn-outline-danger" asp-area="Admin" asp-action="DeleteBlog" asp-route-id="@item.BlogId"> Sil</a></td>
+
+                                            <td><a class="btn btn-outline-warning" href="/Blog/BlogDetail/@item.BlogId">Blogu Aç</a></td>
+                                            <td><a class="btn btn-outline-warning" asp-area="Admin" asp-controller="AdminComment" asp-action="Index" asp-route-id="@item.BlogId"> Şərhlər</a></td>
+
+
+
+
+                                        </tr>
+
+
+                                    }
+
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                    </div>
+                    <!-- end card-body-->
+                </div>
+                <!-- end card -->
+
+            </div>
+            <!-- end col -->
+            <!-- end col -->
+        </div>
+        <!-- end page title -->
+
+    </div> <!-- container-fluid -->
+</div>
+
+
+
+
+
+

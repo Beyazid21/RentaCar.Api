@@ -1,0 +1,97 @@
+﻿@model List<ResultFooterAddressDto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLoyaut/Index.cshtml";
+
+}
+
+
+
+<div class="page-content">
+    <div class="container-fluid">
+
+        <!-- start page title -->
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">FooterAddress hissəsi</h4>
+                        <p class="card-subtitle mb-4">
+                            FooterAddress Hissəsi məlumatları silmə yeniləmə və əlavə etmə əmaliyyatları burdan edilir
+                        </p>
+                        <div class="table-responsive">
+                            <table class="table mb-0">
+                                <thead>
+                                    <tr>
+
+                                        <th>Təsvir</th>
+                                        <th>Ünvan</th>
+
+                                        <th>Telefon Nömrəsi</th>
+                                        <th>Email</th>
+
+
+                                        <th>Sil</th>
+                                        <th>Yenilə</th>
+                                    
+
+
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+
+
+                                        <tr>
+
+                                            <td>  @item.Description</td>
+                                            <td>  @item.Address</td>
+                                            <td>  @item.Phone</td>
+                                            <td>  @item.Email</td>
+
+
+
+
+
+                                            <td><a class="btn btn-outline-danger" asp-area="Admin" asp-action="DeleteFooterAddress" asp-route-id="@item.FooterAddressId"> Sil</a></td>
+                                            <td><a class="btn btn-outline-warning" asp-area="Admin" asp-action="UpdateFooterAddress" asp-route-id="@item.FooterAddressId"> Yenilə</a></td>
+          
+
+
+
+
+
+                                        </tr>
+
+
+                                    }
+
+
+                                </tbody>
+
+                            </table>
+                            <a asp-area="Admin" asp-controller="AdminFooterAddress" asp-action="CreateFooterAddress" class="btn btn-outline-success">Əlavə Et</a>
+                        </div>
+
+                    </div>
+                    <!-- end card-body-->
+                </div>
+                <!-- end card -->
+
+            </div>
+            <!-- end col -->
+            <!-- end col -->
+        </div>
+        <!-- end page title -->
+
+    </div> <!-- container-fluid -->
+</div>
+
+
+
+
+
+

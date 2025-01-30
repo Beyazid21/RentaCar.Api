@@ -20,7 +20,7 @@ namespace RentACar.Application.Features.CQRS.Handlers.BannerHandlers
 
         public async Task Handle(RemoveBannerCommand command)
         {
-            var value=await _repository.GetByIdAsync(command.Id);
+            var value=await _repository.GetByIdAsync(x => x.BannerId == command.Id);
             await _repository.RemoveAsync(value);
         }
     }

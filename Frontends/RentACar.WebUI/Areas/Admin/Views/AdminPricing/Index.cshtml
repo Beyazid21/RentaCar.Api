@@ -1,0 +1,82 @@
+﻿@model List<ResultPricingDto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLoyaut/Index.cshtml";
+    int count = 0;
+}
+
+
+
+<div class="page-content">
+    <div class="container-fluid">
+
+    
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Avtomobillərin ödəniş növləri burada tənzimlənir</h4>
+                        <p class="card-subtitle mb-4">
+                            Ödəniş Üsulları Hissəsi məlumatları silmə yeniləmə və əlavə etmə əmaliyyatları burdan edilir
+                        </p>
+                        <div class="table-responsive">
+                            <table class="table mb-0">
+                                <thead>
+                                    <tr>
+
+                                        <th># </th>
+                                        <th>Periyod Ad</th>
+                                
+                                     
+
+                                        <th>Sil</th>
+                                        <th>Yenilə</th>
+
+
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+
+                                        count++;
+                                        <tr>
+
+                                            <td>@count</td>
+                                            <td>@item.Name</td>
+                                          
+
+                                            <td><a class="btn btn-outline-danger" asp-area="Admin" asp-action="DeletePricing" asp-route-id="@item.PricingId"> Sil</a></td>
+                                            <td><a class="btn btn-outline-warning" asp-area="Admin" asp-action="UpdatePricing" asp-route-id="@item.PricingId"> Yenilə</a></td>
+
+
+
+
+                                        </tr>
+
+
+                                    }
+
+
+                                </tbody>
+
+                            </table>
+                            <a asp-area="Admin" asp-controller="AdminPricing" asp-action="CreatePricing" class="btn btn-outline-success">Əlavə Et</a>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        
+        </div>
+
+
+    </div> 
+</div>
+
+
+
+

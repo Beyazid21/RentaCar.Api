@@ -20,7 +20,7 @@ namespace RentACar.Application.Features.CQRS.Handlers.AboutHandlers
 
         public async Task Handle(UpdateAboutCommand command)
         {
-            var value=await _repository.GetByIdAsync(command.AboutId);
+            var value=await _repository.GetByIdAsync(x => x.AboutId == command.AboutId);
 
             value.Title = command.Title;
             value.Description = command.Description;

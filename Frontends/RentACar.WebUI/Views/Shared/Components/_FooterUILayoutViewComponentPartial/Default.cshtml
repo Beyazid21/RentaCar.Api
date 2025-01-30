@@ -1,0 +1,100 @@
+﻿@model List<ResultFooterAddressDto>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+@{
+    string a = @"
+Salam";
+}
+<script>
+    $(document).ready(function () {
+
+        $('#btn1').click(function () {
+            swal("Şərtlər & Qanunlar", "Avtomobil kirayəsi zamanı müştəri icarə müqaviləsində qeyd olunan şərtlərə riayət etməlidir. Maşınların yalnız qanuni məqsədlər üçün və təhlükəsiz istifadə edilməsi tələb olunur. Ətraflı məlumat üçün bizimlə əlaqə saxlayın.");
+
+        });
+
+        $('#btn2').click(function () {
+            swal("Təhlükəsizlik", "Müştərilərimizin məlumatlarının təhlükəsizliyi bizim üçün prioritetdir. Ödəniş zamanı daxil etdiyiniz kart məlumatları sistemimizdə saxlanılmır və birbaşa təhlükəsiz ödəniş platformasına yönləndirilir. Telefon nömrəsi, email və şəxsiyyət vəsiqəsi nömrəsi kimi şəxsi məlumatlar müasir şifrələmə texnologiyaları ilə qorunur və sistemdə şifrələnmiş formada saxlanılır. Saytımızda istifadəçi təhlükəsizliyini təmin etmək üçün JWT (JSON Web Token) və digər müasir autentifikasiya üsullarından istifadə edirik.");
+
+        });
+
+        $('#btn3').click(function () {
+            swal("Çərəz siyasəti", "Sizlərə daha yaxşı xidmət üçün brauzer çərəzlərini istifadə edirik ");
+
+        });
+        $('#btn4').click(function () {
+            swal("Ən çox verilən suallar", "@a");
+
+        });
+    });
+ 
+</script>
+@foreach(var item in Model)
+{
+    <footer class="ftco-footer ftco-bg-dark ftco-section">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2"><a href="#" class="logo">Car<span>book</span></a></h2>
+                        <p>@item.Description</p>
+                        <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                            <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                            <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                            <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4 ml-md-5">
+                        <h2 class="ftco-heading-2">Məlumatlar</h2>
+                        <ul class="list-unstyled">
+                            <li><a href="/About/Index/" class="py-2 d-block">Haqqimizda</a></li>
+                            <li><a href="/Service/Index/" class="py-2 d-block">Xidmetler</a></li>
+                            <li><a href="#" id="btn1" class="py-2 d-block">Şərtlər və qanunlar</a></li>
+                            <li><a href="#" id="btn2" class="py-2 d-block">Təhlükəsizlik</a></li>
+                            <li><a href="#" id="btn3" class="py-2 d-block">Çərəz siyasəti</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">Müşrəti Dəstəyi</h2>
+                        <ul class="list-unstyled">
+                            <li><a href="#" id="btn4" class="py-2 d-block">Ən çox verilən suallar</a></li>
+                            <li><a  class="py-2 d-block">Ödəniş növləri</a></li>
+                            <li><a href="#" class="py-2 d-block">Booking Tips</a></li>
+                            <li><a href="#" class="py-2 d-block">How it works</a></li>
+                            <li><a href="/Contact/Index/" class="py-2 d-block">Bizimlə əlaqə</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">Have a Questions?</h2>
+                        <div class="block-23 mb-3">
+                            <ul>
+                                <li><span class="icon icon-map-marker"></span><span class="text">@item.Address</span></li>
+                                <li><span class="icon icon-phone"></span><span class="text">@item.Phone</span></li>
+                                <li><span class="icon icon-envelope"></span><span class="text">@item.Email</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+
+                    <p>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+}
+
+<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" /><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg></div>
+

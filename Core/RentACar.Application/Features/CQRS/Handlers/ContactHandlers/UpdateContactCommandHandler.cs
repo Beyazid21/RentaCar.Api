@@ -20,7 +20,7 @@ namespace RentACar.Application.Features.CQRS.Handlers.ContactHandlers
 
         public async Task Handle(UpdateContactCommand command)
         {
-            var value = await _repository.GetByIdAsync(command.ContactId);
+            var value = await _repository.GetByIdAsync(x=>x.ContactId==command.ContactId);
             value.Name = command.Name;
             value.Email = command.Email;    
             value.Subject = command.Subject;

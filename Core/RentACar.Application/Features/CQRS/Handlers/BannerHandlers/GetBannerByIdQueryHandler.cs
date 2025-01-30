@@ -22,7 +22,7 @@ namespace RentACar.Application.Features.CQRS.Handlers.BannerHandlers
 
         public async Task<GetBannerByIdQueryResult> Handle(GetBannerByIdQuery query)
         {
-            var value=await _repository.GetByIdAsync(query.Id);
+            var value=await _repository.GetByIdAsync(predicate: x => x.BannerId == query.Id);
 
             return new GetBannerByIdQueryResult
             {

@@ -1,0 +1,46 @@
+﻿@model UpdatePricingDto
+@{
+    ViewData["Title"] = "UpdatePricing";
+    Layout = "~/Views/AdminLoyaut/Index.cshtml";
+}
+
+
+
+
+
+<div class="page-content">
+    <div class="container-fluid">
+
+
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+
+                        <h4 class="card-title">Avtomobil Ödəniş Üsulu Yeniləmə Səhifəsi</h4>
+                        <p class="card-subtitle mb-4">Avtomabil Ödəniş üsulu Buradan Yenilənir</p>
+
+                        <form method="post">
+                            <input type="hidden" asp-for="PricingId" />
+                            <div class="form-group">
+                                <label for="exampleInputModel">Xusisiyyət</label>
+                                <input type="text" class="form-control" id="exampleInputModel" asp-for="Name" placeholder="Başlıqı yazın">
+                            </div>
+
+
+                            <button type="submit" class="btn btn-primary waves-effect waves-light">Təsdiq et</button>
+                        </form>
+
+                    </div> <!-- end card-body-->
+                </div>
+
+            </div>
+            <!-- end card-body-->
+        </div>
+        <!-- end card -->
+
+    </div>
+    <!-- end col -->
+    <!-- end col -->
+</div>
+<!-- end page title -->

@@ -7,9 +7,12 @@ using RentACar.Application.Interfaces;
 
 namespace RentACar.Application.Features.Mediator.Handlers.FeatureHandlers
 {
+   
     public class GetFeatureQueryHandler : IRequestHandler<GetFeatureQuery, List<GetFeatureQueryResult>>
     {
         private readonly IRepository<Feature> _repository;
+    
+        
 public GetFeatureQueryHandler(IRepository<Feature> repository)
         {
             _repository = repository;

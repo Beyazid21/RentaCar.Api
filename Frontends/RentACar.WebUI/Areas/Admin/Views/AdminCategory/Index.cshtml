@@ -1,0 +1,88 @@
+﻿@model List<ResultCategoryDto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLoyaut/Index.cshtml";
+
+}
+
+
+
+<div class="page-content">
+    <div class="container-fluid">
+
+        <!-- start page title -->
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Kategory hissəsi</h4>
+                        <p class="card-subtitle mb-4">
+                            Kategory Hissəsi məlumatları silmə yeniləmə və əlavə etmə əmaliyyatları burdan edilir
+                        </p>
+                        <div class="table-responsive">
+                            <table class="table mb-0">
+                                <thead>
+                                    <tr>
+
+                                        <th>Ad</th>
+                                      
+
+
+                                        <th>Sil</th>
+                                        <th>Yenilə</th>
+                                        <th>Kateqoriyaya aid bloqlar</th>
+
+
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+
+
+                                        <tr>
+
+                                            <td>@item.Name</td>
+                                   
+
+
+                                            <td><a class="btn btn-outline-danger" asp-area="Admin" asp-action="DeleteCategory" asp-route-id="@item.CategoryId"> Sil</a></td>
+                                            <td><a class="btn btn-outline-warning" asp-area="Admin" asp-action="UpdateCategory" asp-route-id="@item.CategoryId"> Yenilə</a></td>
+                                            <td><a class="btn btn-outline-warning" asp-area="Admin" asp-action="UpdateCategory" asp-route-id="@item.CategoryId"> Kateqoriyaya aid bloqlar</a></td>
+
+
+
+
+                                        </tr>
+
+
+                                    }
+
+
+                                </tbody>
+
+                            </table>
+                            <a asp-area="Admin" asp-controller="AdminCategory" asp-action="CreateCategory" class="btn btn-outline-success">Əlavə Et</a>
+                        </div>
+
+                    </div>
+                    <!-- end card-body-->
+                </div>
+                <!-- end card -->
+
+            </div>
+            <!-- end col -->
+            <!-- end col -->
+        </div>
+        <!-- end page title -->
+
+    </div> <!-- container-fluid -->
+</div>
+
+
+
+
+
+

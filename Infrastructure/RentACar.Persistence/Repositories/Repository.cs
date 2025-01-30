@@ -1,9 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query;
 using RentACar.Application.Interfaces;
 using RentACar.Persistence.Context;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -24,14 +26,38 @@ namespace RentACar.Persistence.Repositories
            await _context.SaveChangesAsync();   
         }
 
-        public async Task<List<T>> GetAllAsync()
+        public async Task<List<T>> GetAllAsync(
+     Expression<Func<T, bool>>? predicate = null,
+     Func<IQueryable<T>, IIncludableQueryable<T, object>>? include = null,
+     Func<IQueryable<T>, IOrderedQueryable<T>>? order = null,
+     int? takecount = null)
         {
-           return await _context.Set<T>().ToListAsync();
+            IQueryable<T> queryrable = _context.Set<T>();
+
+            if (include is not null)
+                queryrable = include(queryrable);
+
+            if (order is not null)
+                queryrable = order(queryrable);
+
+            if (predicate is not null)
+                queryrable = queryrable.Where(predicate);
+
+            if (takecount is not null)
+                queryrable = queryrable.Take((int)takecount);
+
+            return await queryrable.ToListAsync();
         }
 
-        public async Task<T> GetByIdAsync(int id)
+        public async Task<T> GetByIdAsync(Expression<Func<T, bool>> predicate , Func<IQueryable<T>, IIncludableQueryable<T, object>>? include = null)
         {
-            return await _context.Set<T>().FindAsync(id);
+            IQueryable<T> queryrable = _context.Set<T>();
+            if (include is not null) queryrable = include(queryrable);
+
+
+
+            return await queryrable.FirstAsync(predicate);
+            
         }
 
         public async Task RemoveAsync(T entity)

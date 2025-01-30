@@ -1,0 +1,59 @@
+﻿@model List<ResultCommentDto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLoyaut/Index.cshtml";
+    int count = 0;
+}
+
+
+
+<div class="page-content">
+    <div class="container-fluid">
+
+        <!-- start page title -->
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Bloqlara yazılmış commentlər</h4>
+                        <p class="card-subtitle mb-4">
+                            Burada bloqlara yazılmış commetnlər var
+                        </p>
+                        @foreach(var item in Model)
+                        {
+                            count++;
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <h5 class="card-header">Şərh:@count</h5>
+                                    <div class="card-body">
+                                        <h4 class="card-title">@item.Name</h4>
+                                        <p class="card-text">
+                                            @item.Desciption
+                                        </p>
+                                        <a href="#" class="btn btn-primary waves-effect waves-light">Şərhi sil</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        }
+
+                    </div>
+                    <!-- end card-body-->
+                </div>
+                <!-- end card -->
+
+            </div>
+            <!-- end col -->
+            <!-- end col -->
+        </div>
+        <!-- end page title -->
+
+    </div> <!-- container-fluid -->
+</div>
+
+
+
+
+
+

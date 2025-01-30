@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using RentACar.Application.Features.CQRS.Results.CarResults;
+using Microsoft.EntityFrameworkCore;
 
 namespace RentACar.Application.Features.CQRS.Handlers.CarHandlers
 {
@@ -21,11 +22,12 @@ namespace RentACar.Application.Features.CQRS.Handlers.CarHandlers
 
         public async Task<List<GetCarQueryResult>> Handle()
         {
-            var value = await _repository.GetAllAsync();
+            var value = await _repository.GetAllAsync(include:x=>x.Include(x=>x.Brand));
 
             return value.Select(x => new GetCarQueryResult
             {
                 CarId = x.CarId,
+                BrandName = x.Brand != null ? x.Brand.Model : "No Brand",
               Name = x.Name,
               BigImageUrl = x.BigImageUrl,
               BrandId = x.BrandId,

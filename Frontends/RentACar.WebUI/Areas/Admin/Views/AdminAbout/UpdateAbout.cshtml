@@ -1,0 +1,56 @@
+﻿@model UpdateAboutDto
+@{
+    ViewData["Title"] = "UpdateAbout";
+    Layout = "~/Views/AdminLoyaut/Index.cshtml";
+}
+
+
+
+
+
+<div class="page-content">
+    <div class="container-fluid">
+
+
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+
+                        <h4 class="card-title">Avtomobil Yeniləmə Səhifəsi</h4>
+                        <p class="card-subtitle mb-4">Avtomabil Buradan Yenilənir</p>
+
+                        <form method="post">
+                            <input type="hidden" asp-for="aboutId" />
+                            <div class="form-group">
+                                <label for="exampleInputModel">Xusisiyyət</label>
+                                <input type="text" class="form-control" id="exampleInputModel" asp-for="title" placeholder="Başlıqı yazın">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputModel">Xusisiyyət</label>
+                                <textarea rows="5" type="text" class="form-control" id="exampleInputModel" asp-for="description" placeholder="Təsviri yazın">
+                                    </textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputModel">Xusisiyyət</label>
+                                <input type="text" class="form-control" id="exampleInputModel" asp-for="imageUrl" placeholder="Videonun təsvirin  yazın">
+                            </div>
+
+
+                            <button type="submit" class="btn btn-primary waves-effect waves-light">Təsdiq et</button>
+                        </form>
+
+                    </div> <!-- end card-body-->
+                </div>
+
+            </div>
+            <!-- end card-body-->
+        </div>
+        <!-- end card -->
+
+    </div>
+    <!-- end col -->
+    <!-- end col -->
+</div>
+<!-- end page title -->

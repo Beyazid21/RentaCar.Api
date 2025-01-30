@@ -1,0 +1,47 @@
+﻿@model UpdateBrandDto
+@{
+    ViewData["Title"] = "UpdateBrand";
+    Layout = "~/Views/AdminLoyaut/Index.cshtml";
+}
+
+
+
+
+
+<div class="page-content">
+    <div class="container-fluid">
+
+
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+
+                        <h4 class="card-title">Marka Yeniləmə Səhifəsi</h4>
+                        <p class="card-subtitle mb-4">Marka Buradan Yenilənir</p>
+
+                        <form method="post">
+                            <input type="hidden" asp-for="BrandId" />
+
+                            <div class="form-group">
+                                <label asp-for="Model">Xususiyyət</label>
+                                <input type="text" class="form-control" id="exampleInputModel" asp-for="Model" placeholder="Xusisiyyəti  yazın">
+                            </div>
+
+
+                            <button type="submit" class="btn btn-primary waves-effect waves-light">Təsdiq et</button>
+                        </form>
+
+                    </div> <!-- end card-body-->
+                </div>
+
+            </div>
+            <!-- end card-body-->
+        </div>
+        <!-- end card -->
+
+    </div>
+    <!-- end col -->
+    <!-- end col -->
+</div>
+<!-- end page title -->

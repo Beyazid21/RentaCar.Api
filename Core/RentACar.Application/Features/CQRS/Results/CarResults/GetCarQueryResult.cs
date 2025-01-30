@@ -12,6 +12,7 @@ namespace RentACar.Application.Features.CQRS.Results.CarResults
         public int CarId { get; set; }
 
         public string Name { get; set; }
+        public string BrandName { get; set; }
 
         public string CoverImageUrle { get; set; }
 

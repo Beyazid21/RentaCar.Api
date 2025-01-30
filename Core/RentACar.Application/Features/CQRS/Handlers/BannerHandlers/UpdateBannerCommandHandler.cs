@@ -21,7 +21,7 @@ namespace RentACar.Application.Features.CQRS.Handlers.BannerHandlers
 
         public async Task Handle(UpdateBannerCommand command)
         {
-            var value = await _repository.GetByIdAsync(command.BannerId);
+            var value = await _repository.GetByIdAsync(x => x.BannerId == command.BannerId);
             value.Description=command.Description;
             value.Title=command.Title;
             value.VideoUrl=command.VideoUrl;

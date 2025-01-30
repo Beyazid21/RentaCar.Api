@@ -1,10 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RentaCar.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace RentACar.Persistence.Context
 {
@@ -32,8 +28,28 @@ namespace RentACar.Persistence.Context
         public DbSet<Service> Services { get; set; } 
         public DbSet<SocialMedia> SocialMedias { get; set; } 
         public DbSet<Testimonial> Testimonials { get; set; } 
+        public DbSet<Blog> Blogs { get; set; } 
+        public DbSet<Author> Authors { get; set; } 
+        public DbSet<TagCloud> TagClouds { get; set; } 
+        public DbSet<Comment> Comments { get; set; } 
+        public DbSet<RentCar> RentCars { get; set; } 
+        public DbSet<Customer> Customers { get; set; } 
+        public DbSet<Reservation> Reservations { get; set; }
 
 
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Reservation>().HasOne(x => x.PickUpLocation)
+                 .WithMany(y => y.PickUpReservation)
+                 .HasForeignKey(z => z.PickUpLocationId)
+                 .OnDelete(DeleteBehavior.ClientSetNull);
+
+            modelBuilder.Entity<Reservation>().HasOne(x => x.DropOffLocation)
+                 .WithMany(y => y.DropOffReservation)
+                 .HasForeignKey(z => z.DropOffLocationId)
+                 .OnDelete(DeleteBehavior.ClientSetNull);
+        }
 
     }
 }

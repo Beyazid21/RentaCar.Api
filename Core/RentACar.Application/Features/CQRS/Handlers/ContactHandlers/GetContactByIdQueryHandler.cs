@@ -21,7 +21,7 @@ namespace RentACar.Application.Features.CQRS.Handlers.ContactHandlers
 
         public async Task<GetContactByIdQueryResult> Handle(GetContactByIdQuery query)
         {
-            var value = await _repository.GetByIdAsync(query.Id);
+            var value = await _repository.GetByIdAsync(predicate: x => x.ContactId == query.Id);
 
             return new GetContactByIdQueryResult
             {

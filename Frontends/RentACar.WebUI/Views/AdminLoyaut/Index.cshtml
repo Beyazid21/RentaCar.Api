@@ -1,0 +1,54 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+@await Html.PartialAsync("/Views/AdminLoyaut/AdminHeaderPartial.cshtml");
+
+
+<body>
+
+    <!-- Begin page -->
+    <div id="layout-wrapper">
+        @await Html.PartialAsync("/Views/AdminLoyaut/AdminNavbarPartial.cshtml");
+     
+
+        <!-- ========== Left Sidebar Start ========== -->
+        @await Html.PartialAsync("/Views/AdminLoyaut/AdminSidebarPartial.cshtml");
+       
+        <!-- Left Sidebar End -->
+        <!-- ============================================================== -->
+        <!-- Start right Content here -->
+        <!-- ============================================================== -->
+        <div class="main-content">
+
+
+            @RenderBody()
+            <!-- End Page-content -->
+            @await Html.PartialAsync("/Views/AdminLoyaut/AdminFooterPartial.cshtml");
+           
+
+        </div>
+        <!-- end main content-->
+
+    </div>
+    <!-- END layout-wrapper -->
+    <!-- Overlay-->
+
+
+
+    <!-- jQuery  -->
+    @await Html.PartialAsync("/Views/AdminLoyaut/AdminScriptPartial.cshtml");
+
+
+    <!-- App js -->
+
+
+</body>
+
+</html>
+
+

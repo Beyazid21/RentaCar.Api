@@ -20,7 +20,7 @@ namespace RentACar.Application.Features.CQRS.Handlers.ContactHandlers
 
         public async Task Handle(RemoveContactCommand command)
         {
-            var value = await _repository.GetByIdAsync(command.Id);
+            var value = await _repository.GetByIdAsync(x => x.ContactId == command.Id);
             await _repository.RemoveAsync(value);
         }
     }
